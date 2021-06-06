@@ -15,5 +15,3 @@ app.use(router)
 app.listen(PORT, () => {
   console.log(`HTTP server running on port ${PORT}`)
 })
-
-module.exports = runServer

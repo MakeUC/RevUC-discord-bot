@@ -28,7 +28,8 @@
     "pg": "^8.5.1",
     "pg-hstore": "^2.3.3",
     "random": "^2.2.0",
-    "sequelize": "^6.5.0"
+    "sequelize": "^6.5.0",
+    "sqlite3": "^5.0.2"
   },
   "devDependencies": {
     "@types/sequelize": "^4.28.9",

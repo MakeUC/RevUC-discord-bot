@@ -1,9 +1,12 @@
 const { Sequelize, DataTypes } = require(`sequelize`)
 
-const sequelize = new Sequelize(process.env.DATABASE_URL, {
-  dialect: 'postgres',
-  dialectOptions: { ssl: { require: true, rejectUnauthorized: false } },
-})
+const DATABASE_URL = process.env.DATABASE_URL;
+
+// const sequelize = new Sequelize(DATABASE_URL, {
+//   dialect: 'postgres',
+//   dialectOptions: { ssl: { require: true, rejectUnauthorized: false } },
+// })
+const sequelize = new Sequelize('sqlite::memory:');
 exports.sequelize = sequelize
 
 exports.User = sequelize.define(`discord-user`, {
