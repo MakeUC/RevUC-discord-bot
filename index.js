@@ -1,2 +1,2 @@
-require('./discord');
-require('./server');
+require('./discord')
+require('./server')
