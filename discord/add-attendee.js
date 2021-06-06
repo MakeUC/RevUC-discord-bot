@@ -2,7 +2,7 @@ const Discord = require('discord.js')
 const Axios = require('axios').default
 
 const API_TOKEN = process.env.API_TOKEN
-const TOP_CHANNEL_ID = process.env.TOP_CHANNEL_ID
+const ADMIN_CHANNEL_ID = process.env.ADMIN_CHANNEL_ID
 
 /**
  * 
@@ -24,7 +24,7 @@ module.exports = async function (args, message, primaryCommand) {
       isMinor = true
     }
 
-    if (message.channel.id == TOP_CHANNEL_ID) {
+    if (message.channel.id == ADMIN_CHANNEL_ID) {
       try {
         await Axios.post(
           `https://revolutionuc-api.herokuapp.com/api/v2/attendee`,

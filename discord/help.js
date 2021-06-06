@@ -1,7 +1,7 @@
-const TOP_CHANNEL_ID = process.env.TOP_CHANNEL_ID
+const ADMIN_CHANNEL_ID = process.env.ADMIN_CHANNEL_ID
 
 function helpCommand(args, receivedMessage) {
-  const isAdminChannel = receivedMessage.channel.id == TOP_CHANNEL_ID;
+  const isAdminChannel = receivedMessage.channel.id == ADMIN_CHANNEL_ID;
 
     if(args.length < 1){
       isAdminChannel ?

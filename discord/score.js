@@ -1,5 +1,5 @@
 const Discord = require('discord.js')
-const { User, Event, Claim } = require('./database')
+const { User, Event, Claim } = require('../database')
 
 const CLAIM_CHANNEL_ID = process.env.CLAIM_CHANNEL_ID
 const TOP_CHANNEL_ID = process.env.TOP_CHANNEL_ID
