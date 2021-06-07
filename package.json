@@ -33,6 +33,7 @@
   },
   "devDependencies": {
     "@types/sequelize": "^4.28.9",
+    "ngrok": "^4.0.1",
     "nodemon": "^2.0.7",
     "prettier": "^2.3.1"
   }

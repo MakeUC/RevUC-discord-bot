@@ -15,9 +15,8 @@ function helpCommand(args, receivedMessage) {
     const topic = args[0]
     switch (topic) {
       case 'checkin':
-        console.log('checkin prompt')
         receivedMessage.channel.send(
-          'Type the email you registered with out on the checkin channel to check in to RevolutionUC. Ex: `foo@bar.com`'
+          'Type the email you registered with out on the checkin channel to check in to MakeUC. Ex: `foo@bar.com`'
         )
         break
       case 'codes':

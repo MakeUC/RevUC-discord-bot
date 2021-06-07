@@ -48,7 +48,6 @@ function generateResponse(name, event, score, r_id) {
 
 async function score(args, receivedMessage) {
   if (receivedMessage.channel.id != CLAIM_CHANNEL_ID) {
-    console.log('wrong channel')
     return
   }
 
