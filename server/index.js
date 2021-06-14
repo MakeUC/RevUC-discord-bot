@@ -9,6 +9,11 @@ const app = express()
 
 app.use(express.json())
 app.use(cors({ origin: `*` }))
+
+app.get(`/ping`, async (req, res, next) => {
+  res.send(`pong`)
+})
+
 app.use(auth)
 app.use(router)
 
