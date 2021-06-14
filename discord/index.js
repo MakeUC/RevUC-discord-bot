@@ -1,4 +1,5 @@
 require('dotenv').config()
+const Discord = require('discord.js')
 const client = require('./client')
 const help = require('./help')
 const checkin = require('./checkin')
@@ -6,6 +7,7 @@ const { score, top } = require('./score')
 const revvit = require('./revvit')
 const background = require('./background')
 const addAttendee = require('./add-attendee')
+const stats = require('./stats')
 
 const CHECKIN_CHANNEL_ID = process.env.CHECKIN_CHANNEL_ID
 
@@ -36,7 +38,7 @@ client.on('message', async (receivedMessage) => {
     return
   }
 
-  if (receivedMessage.content.startsWith('!')) {
+  if (receivedMessage.content.startsWith('/')) {
     processCommand(receivedMessage)
   }
 })
@@ -83,6 +85,10 @@ function processCommand(receivedMessage) {
     case 'judge':
     case 'minor':
       addAttendee(commandArguments, receivedMessage, primaryCommand)
+      break
+    case 'stats':
+    case 'verify':
+      stats(commandArguments, receivedMessage, primaryCommand)
       break
   }
 }
