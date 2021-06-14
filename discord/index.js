@@ -72,7 +72,7 @@ function processCommand(receivedMessage) {
       top(commandArguments, receivedMessage)
       break
     case 'hi':
-    case 'revvit':
+    case 'makeit':
       revvit(commandArguments, receivedMessage)
       break
     case 'background':

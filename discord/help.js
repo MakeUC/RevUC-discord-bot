@@ -6,10 +6,10 @@ function helpCommand(args, receivedMessage) {
   if (args.length < 1) {
     isAdminChannel
       ? receivedMessage.channel.send(
-          'specify what you need help for:\n `!revvit` \n `!help checkin` \n `!help codes` \n `!help sponsor` \n `!help mentor` \n `!help judge` \n `!help minor` \nor `!background` to know more about me! '
+          'specify what you need help for:\n `!makeit` \n `!help checkin` \n `!help codes` \n `!help sponsor` \n `!help mentor` \n `!help judge` \n `!help minor` \nor `!background` to know more about me! '
         )
       : receivedMessage.channel.send(
-          'specify what you need help for:\n `!revvit` \n `!help checkin` \n `!help codes` \nor `!background` to know more about me! '
+          'specify what you need help for:\n `!makeit` \n `!help checkin` \n `!help codes` \nor `!background` to know more about me! '
         )
   } else {
     const topic = args[0]
@@ -17,7 +17,7 @@ function helpCommand(args, receivedMessage) {
       case 'checkin':
         console.log('checkin prompt')
         receivedMessage.channel.send(
-          'Type the email you registered with out on the checkin channel to check in to RevolutionUC. Ex: `foo@bar.com`'
+          'Type the email you registered with out on the checkin channel to check in to MakeUC. Ex: `foo@bar.com`'
         )
         break
       case 'codes':
