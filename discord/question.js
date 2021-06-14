@@ -4,11 +4,11 @@ const QUESTIONS_CHANNEL_ID = process.env.QUESTIONS_CHANNEL_ID
 
 /**
  *
- * @param {string} text
+ * @param {string} message
  */
-const sendQuestion = async (text) => {
+const sendQuestion = async (message) => {
   const questionsChannel = await client.channels.fetch(QUESTIONS_CHANNEL_ID)
-  return questionsChannel.send(text)
+  return questionsChannel.send(message)
 }
 
 module.exports = sendQuestion
