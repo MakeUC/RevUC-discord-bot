@@ -14,17 +14,6 @@ const CHECKIN_CHANNEL_ID = process.env.CHECKIN_CHANNEL_ID
 client.once('ready', () => {
   console.log('the bot is online!')
   client.user.setActivity('with Javascript', { type: 'PLAYING' })
-
-  // list all servers the bot is connected to
-  console.log('\nServers:')
-  client.guilds.cache.forEach((guild) => {
-    console.log(` - ${guild.name}`)
-
-    // list all channels in the server
-    guild.channels.cache.forEach((channel) => {
-      console.log(` -- ${channel.name} (${channel.type}) - ${channel.id}`)
-    })
-  })
 })
 
 client.on('message', async (receivedMessage) => {

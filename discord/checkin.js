@@ -68,7 +68,7 @@ module.exports = async function (message) {
     emailValidator.validate(email) &&
     message.channel.id == CHECKIN_CHANNEL_ID
   ) {
-    // send a request to revuc api to check in the email
+    // send a request to api to check in the email
     try {
       const res = await Axios.post(
         `https://revolutionuc-api.herokuapp.com/api/v2/attendee/checkin`,
