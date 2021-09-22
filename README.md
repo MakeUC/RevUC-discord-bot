@@ -1,4 +1,4 @@
-# RevUC-discord-bot
+# MakeUC-discord-bot
 
 discord bot
 
