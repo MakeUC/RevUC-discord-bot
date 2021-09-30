@@ -1,0 +1,4 @@
+{
+  "name": "attendee-server",
+  "script": "npm start"
+}

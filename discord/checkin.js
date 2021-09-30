@@ -2,6 +2,7 @@ const Discord = require('discord.js')
 const emailValidator = require('email-validator')
 const Axios = require('axios').default
 
+const ATTENDEE_API = process.env.ATTENDEE_API
 const API_TOKEN = process.env.API_TOKEN
 const HACKER_ROLE = process.env.HACKER_ROLE
 const JUDGE_ROLE = process.env.JUDGE_ROLE
@@ -71,7 +72,7 @@ module.exports = async function (message) {
     // send a request to api to check in the email
     try {
       const res = await Axios.post(
-        `https://revolutionuc-api.herokuapp.com/api/v2/attendee/checkin`,
+        `${ATTENDEE_API}/checkin`,
         { email },
         {
           headers: {

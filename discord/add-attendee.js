@@ -1,6 +1,7 @@
 const Discord = require('discord.js')
 const Axios = require('axios').default
 
+const ATTENDEE_API = process.env.ATTENDEE_API
 const API_TOKEN = process.env.API_TOKEN
 const ADMIN_CHANNEL_ID = process.env.ADMIN_CHANNEL_ID
 
@@ -29,7 +30,7 @@ module.exports = async function (args, message, primaryCommand) {
     if (message.channel.id == ADMIN_CHANNEL_ID) {
       try {
         await Axios.post(
-          `https://revolutionuc-api.herokuapp.com/api/v2/attendee`,
+          `${ATTENDEE_API}`,
           { email, name, role, isMinor },
           { headers: { Authorization: `Bearer ${API_TOKEN}` } }
         )
