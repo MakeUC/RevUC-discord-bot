@@ -1,4 +1,4 @@
 {
-  "name": "attendee-server",
-  "script": "npm start"
+  "name": "discord-bot",
+  "script": "npm run start:prod"
 }
