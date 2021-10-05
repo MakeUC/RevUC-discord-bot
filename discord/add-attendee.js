@@ -2,7 +2,6 @@ const Discord = require('discord.js')
 const Axios = require('axios').default
 
 const ATTENDEE_API = process.env.ATTENDEE_API
-const API_TOKEN = process.env.API_TOKEN
 const ADMIN_CHANNEL_ID = process.env.ADMIN_CHANNEL_ID
 
 /**
@@ -32,7 +31,6 @@ module.exports = async function (args, message, primaryCommand) {
         await Axios.post(
           `${ATTENDEE_API}`,
           { email, name, role, isMinor },
-          { headers: { Authorization: `Bearer ${API_TOKEN}` } }
         )
 
         message.channel.send(`Created ${primaryCommand} ${name} <${email}>`)

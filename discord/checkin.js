@@ -3,7 +3,6 @@ const emailValidator = require('email-validator')
 const Axios = require('axios').default
 
 const ATTENDEE_API = process.env.ATTENDEE_API
-const API_TOKEN = process.env.API_TOKEN
 const HACKER_ROLE = process.env.HACKER_ROLE
 const JUDGE_ROLE = process.env.JUDGE_ROLE
 const MENTOR_ROLE = process.env.MENTOR_ROLE
@@ -73,12 +72,7 @@ module.exports = async function (message) {
     try {
       const res = await Axios.post(
         `${ATTENDEE_API}/checkin`,
-        { email },
-        {
-          headers: {
-            Authorization: `Bearer ${API_TOKEN}`,
-          },
-        }
+        { email }
       )
 
       const { name, role, isMinor } = res.data
