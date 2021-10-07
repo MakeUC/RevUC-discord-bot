@@ -59,6 +59,7 @@ const responses_403 = [
  */
 module.exports = async function (message) {
   const email = message.toString()
+  const discordId = message.author.id
 
   const max_success = responses_success.length
   const max_404 = responses_404.length
@@ -72,7 +73,7 @@ module.exports = async function (message) {
     try {
       const res = await Axios.post(
         `${ATTENDEE_API}/checkin`,
-        { email }
+        { email, discordId }
       )
 
       const { name, role, isMinor } = res.data
