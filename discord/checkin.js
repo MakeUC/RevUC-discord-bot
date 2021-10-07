@@ -59,7 +59,7 @@ const responses_403 = [
  */
 module.exports = async function (message) {
   const email = message.toString()
-  const discordId = message.author.id
+  const discordId = message.author.tag
 
   const max_success = responses_success.length
   const max_404 = responses_404.length
