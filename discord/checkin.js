@@ -86,6 +86,7 @@ module.exports = async function (message) {
 
       const { name, role, isMinor } = res.data
       const data = res.data
+      const name = data.fullName.split(' ')[0]
 
       let roleToBeAdded
 
@@ -128,7 +129,7 @@ module.exports = async function (message) {
       const censoredEmail = censorEmail(email)
 
       message.channel.send(
-        `${data.name} <${censoredEmail}> ${
+        `${name} <${censoredEmail}> ${
           responses_success[getRandomInt(max_success)]
         }`
       )
