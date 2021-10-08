@@ -84,7 +84,6 @@ module.exports = async function (message) {
         { email, discordId }
       )
 
-      const { name, role, isMinor } = res.data
       const data = res.data
       const name = data.fullName.split(" ")[0]
 
