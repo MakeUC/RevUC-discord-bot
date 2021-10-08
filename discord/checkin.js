@@ -86,7 +86,7 @@ module.exports = async function (message) {
 
       const { name, role, isMinor } = res.data
       const data = res.data
-      const name = data.fullName.split(' ')[0]
+      const name = data.fullName.split(" ")[0]
 
       let roleToBeAdded
 
