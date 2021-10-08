@@ -126,10 +126,13 @@ module.exports = async function (message) {
     } catch (err) {
       console.error(err)
       if (err.response?.status === 404) {
+        // message.channel.send(
+        //   `${censorEmail(email)} ${
+        //     responses_404[getRandomInt(max_404)]
+        //   }, please make sure you are registered with us or contact an organizer`
+        // )
         message.channel.send(
-          `${censorEmail(email)} ${
-            responses_404[getRandomInt(max_404)]
-          }, please make sure you are registered with us or contact an organizer`
+          'Check-in is not currently open, please wait for the hackathon day to check-in!'
         )
       } else if (err.response?.status === 403) {
         message.channel.send(
