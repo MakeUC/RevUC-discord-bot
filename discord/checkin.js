@@ -68,7 +68,8 @@ module.exports = async function (message) {
 
   if (
     emailValidator.validate(email) &&
-    message.channel.id == CHECKIN_CHANNEL_ID
+    message.channel.id == CHECKIN_CHANNEL_ID &&
+    !message.member.roles.cache.some(role => role.id === ADMIN_ROLE) // TODO: comment this out when check-in opens
   ) {
     // send a request to api to check in the email
     try {
@@ -152,7 +153,8 @@ module.exports = async function (message) {
   } else {
     if (!message.member.roles.cache.some(role => role.id === ADMIN_ROLE)) {
       const censored = censorEmail(email)
-      message.channel.send(`${censored} is not a valid email`)
+      // message.channel.send(`${censored} is not a valid email`)
+      message.channel.send("Check-in is not currently open, please wait for the organizer's announcement that check-in is open!")
       message.delete({ timeout: 3000 })
     }
   }
