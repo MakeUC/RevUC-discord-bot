@@ -85,10 +85,11 @@ module.exports = async function (message) {
       )
 
       const { name, role, isMinor } = res.data
+      const data = res.data
 
       let roleToBeAdded
 
-      switch (role) {
+      switch (data.role) {
         case `HACKER`:
           roleToBeAdded = HACKER_ROLE
           break
@@ -117,17 +118,17 @@ module.exports = async function (message) {
       )
       member.roles.add(Role)
 
-      if (isMinor == true) {
-        const minorRole = message.guild.roles.cache.find(
-          (role) => role.id == MINOR_ROLE
-        )
-        member.roles.add(minorRole)
-      }
+      // if (isMinor == true) {
+      //   const minorRole = message.guild.roles.cache.find(
+      //     (role) => role.id == MINOR_ROLE
+      //   )
+      //   member.roles.add(minorRole)
+      // }
 
       const censoredEmail = censorEmail(email)
 
       message.channel.send(
-        `${name} <${censoredEmail}> ${
+        `${data.name} <${censoredEmail}> ${
           responses_success[getRandomInt(max_success)]
         }`
       )
