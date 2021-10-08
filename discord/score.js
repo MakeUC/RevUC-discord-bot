@@ -16,8 +16,8 @@ function generateResponse(name, event, score, r_id) {
   }
 
   const claim_success = [
-    `Good job attending ${event?.name}, you now have ${score} points. Now go attend another one.`,
-    `Ayy nice job ${name}. Hope you enjoyed ${event?.name}! You now have ${score} points.`,
+    `Good job attending ${event?.name}, you now have ${score} points. Make sure to hop into more workshops!`,
+    `Ayy nice job ${name}. Hope you enjoyed ${event?.name}! You now have ${score} points!`,
   ]
 
   const code_wrong = [
