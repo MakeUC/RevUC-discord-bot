@@ -128,7 +128,7 @@ async function top(args, receivedMessage) {
 
   const users = await User.findAll({
     order: [['score', 'DESC']],
-    limit: parseInt(args[0]),
+    limit: parseInt(args[0] || `5`),
   })
   let list = `\`\`\`\n`
 
