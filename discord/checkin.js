@@ -54,6 +54,12 @@ const responses_403 = [
   "you've already signed up!",
 ]
 
+const responses_400 = [
+  "is not verified, have you checked your email?",
+  "you're not verified, check your email!",
+  "isn't verified, check for the verification email!"
+]
+
 /**
  *
  * @param {Discord.Message} message
@@ -139,6 +145,12 @@ module.exports = async function (message) {
       } else if (err.response?.status === 403) {
         message.channel.send(
           `${censorEmail(email)} ${responses_403[getRandomInt(max_403)]}`
+        )
+      } else if (err.response?.status === 400) {
+        message.channel.send(
+          `${censorEmail(email)} ${
+            responses_400[getRandomInt(max_400)]
+          }, please make sure you are verified with us or contact an organizer`
         )
       } else {
         message.channel.send(
