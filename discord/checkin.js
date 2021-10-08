@@ -9,6 +9,7 @@ const MENTOR_ROLE = process.env.MENTOR_ROLE
 const SPONSOR_ROLE = process.env.SPONSOR_ROLE
 const CHECKIN_CHANNEL_ID = process.env.CHECKIN_CHANNEL_ID
 const MINOR_ROLE = process.env.MINOR_ROLE
+const ADMIN_ROLE = process.env.ADMIN_ROLE
 
 /**
  *
@@ -149,8 +150,10 @@ module.exports = async function (message) {
 
     message.delete({ timeout: 2000 })
   } else {
-    const censored = censorEmail(email)
-    message.channel.send(`${censored} is not a valid email`)
-    message.delete({ timeout: 3000 })
+    if (!message.member.roles.cache.some(role => role.id === ADMIN_ROLE)) {
+      const censored = censorEmail(email)
+      message.channel.send(`${censored} is not a valid email`)
+      message.delete({ timeout: 3000 })
+    }
   }
 }
