@@ -75,7 +75,7 @@ module.exports = async function (message) {
   if (
     emailValidator.validate(email) &&
     message.channel.id == CHECKIN_CHANNEL_ID &&
-    message.member.roles.cache.some(role => role.id === ADMIN_ROLE) // TODO: comment this out when check-in opens
+    // message.member.roles.cache.some(role => role.id === ADMIN_ROLE) // TODO: comment this out when check-in opens
   ) {
     // send a request to api to check in the email
     try {
@@ -135,14 +135,14 @@ module.exports = async function (message) {
     } catch (err) {
       console.error(err)
       if (err.response?.status === 404) {
-        // message.channel.send(
-        //   `${censorEmail(email)} ${
-        //     responses_404[getRandomInt(max_404)]
-        //   }, please make sure you are registered with us or contact an organizer`
-        // )
         message.channel.send(
-          'Check-in is not currently open, please wait for the hackathon day to check-in!'
+          `${censorEmail(email)} ${
+            responses_404[getRandomInt(max_404)]
+          }, please make sure you are registered with us or contact an organizer`
         )
+        // message.channel.send(
+        //   'Check-in is not currently open, please wait for the hackathon day to check-in!'
+        // )
       } else if (err.response?.status === 403) {
         message.channel.send(
           `${censorEmail(email)} ${responses_403[getRandomInt(max_403)]}`
@@ -166,8 +166,8 @@ module.exports = async function (message) {
   } else {
     if (!message.member.roles.cache.some(role => role.id === ADMIN_ROLE)) {
       const censored = censorEmail(email)
-      // message.channel.send(`${censored} is not a valid email`)
-      message.channel.send("Check-in is not currently open, please wait for the organizer's announcement that check-in is open!")
+      message.channel.send(`${censored} is not a valid email`)
+      // message.channel.send("Check-in is not currently open, please wait for the organizer's announcement that check-in is open!")
       message.delete({ timeout: 3000 })
     }
   }
