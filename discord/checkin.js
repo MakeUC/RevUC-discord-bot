@@ -71,6 +71,7 @@ module.exports = async function (message) {
   const max_success = responses_success.length
   const max_404 = responses_404.length
   const max_403 = responses_403.length
+  const max_400 = responses_400.length
 
   if (
     emailValidator.validate(email) &&
