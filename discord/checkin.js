@@ -74,7 +74,7 @@ module.exports = async function (message) {
 
   if (
     emailValidator.validate(email) &&
-    message.channel.id == CHECKIN_CHANNEL_ID &&
+    message.channel.id == CHECKIN_CHANNEL_ID
     // message.member.roles.cache.some(role => role.id === ADMIN_ROLE) // TODO: comment this out when check-in opens
   ) {
     // send a request to api to check in the email
