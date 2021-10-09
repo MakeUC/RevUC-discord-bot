@@ -37,6 +37,7 @@ module.exports = async function (args, message, primaryCommand) {
   } catch (err) {
     console.error(err);
     message.channel.send(
+      err.response?.data?.message ||
       `Error fetching stats, please try again later or contact the Super User Dev Olpowerful (SUDO).`
     );
   }
